@@ -40,6 +40,14 @@
                     <target>${maven.compiler.target}</target>
                 </configuration>
             </plugin>
+            <!-- Pinned so the JUnit 5 tests run on any Maven 3.x. Older Maven versions
+                 default to surefire 2.x, which cannot discover JUnit 5 tests and would
+                 silently run nothing while still reporting BUILD SUCCESS. -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.5.2</version>
+            </plugin>
         </plugins>
     </build>
 </project>
